@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TesteComponent implements OnInit {
 
   teste:any = [];
+  student: any = {};
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
@@ -19,6 +20,14 @@ export class TesteComponent implements OnInit {
     this.rest.getTeste().subscribe((data: {}) => {
       console.log(data);
       this.teste = data;
+    });
+  }
+
+  add(){
+    this.rest.add(this.student).subscribe((result) => {
+      
+    }, (err) => {
+      console.log(err);
     });
   }
 

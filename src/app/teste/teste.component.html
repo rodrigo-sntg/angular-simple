@@ -2,9 +2,17 @@
 
 <div>
   <button (click)="getTeste()">
+    teste get
+  </button>
+  <button (click)="add()">
     Add
   </button>
 </div>
+
+
+
+<input type="text" name="firstName" [(ngModel)]="student.name" />
+<input type="text" name="firstName" [(ngModel)]="student.passportNumber" />
 
 <ul class="teste">
   <li *ngFor="let p of teste; let i=index;">

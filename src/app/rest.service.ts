@@ -29,6 +29,14 @@ export class RestService {
     return this.http.get(endpoint + 'students');
   }
 
+  add (student): Observable<any> {
+    console.log(student);
+    return this.http.post<any>(endpoint + 'students', JSON.stringify(student), httpOptions).pipe(
+      tap((student) => console.log(`added student w/`)),
+      catchError(this.handleError<any>('addStudent'))
+    );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
